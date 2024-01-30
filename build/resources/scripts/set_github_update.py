@@ -24,7 +24,7 @@ This script updates the public GitHub repository, specifically by:
 - Create a Release folder, delete if it exists.
 - Change directory to Release folder.
 - Clone https://github.com/NEX-Technologies/NEX-Printer-Release 
-- Rename nex-Printer-Release to nex-Printer-Release-master
+- Rename nex-Printer-Release to NEX-Printer-Release-master
 - Change directory nex-Printer-Release-master
 - Clear the folder contents except the README.md, .git and .gitignore
   (find . ! -name ".git" ! -name ".gitignore" ! -name "README.md" -exec rm -rf {} +)

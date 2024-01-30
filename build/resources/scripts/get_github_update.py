@@ -238,7 +238,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.repaint()
             return False
 
-        subprocess.run(["sudo", "python3", "/home/pi/nex-Printer-Release-master/build/resources/scripts/reset.py"])
+        subprocess.run(["sudo", "python3", "/home/pi/NEX-Printer-Release-master/build/resources/scripts/reset.py"])
 
         self.message_label.setText("Download update success!\n\nInstallation will be on next boot\nPress continue/cancel to close this window.")
         self.repaint()
