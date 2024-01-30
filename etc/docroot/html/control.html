@@ -1,0 +1,264 @@
+<div class="container text-center">
+
+    <h1 style="margin-top:40px;">Control Menu</h1>
+
+    {if is_T1500}
+    <div class="row control-box">
+        <div class="col-md control-sub-box">
+
+            <figure class="image-control-item">
+                <img src="/images/control_page/upWhite.png" alt="move-z-logo" />
+                <figcaption class="image-control-item-caption">
+                    <h5>MOVE Z-AXIS</h5>
+                </figcaption>
+            </figure>
+
+            <form action="/control" method="POST" class="z-section">
+                <div class="move-z-section">
+
+                    <div class="container">
+                        <input id="move-z-slider" name="move-z-slider" type="range" min="0" max="3" value="0">
+                    </div>
+
+                    <div class="container">
+                        <span>Z-Step: <span name="z-step" id="z-step">1</span> mm</span>
+                        <br>
+                        <br>
+                    </div>
+
+                    <input type="submit" method="post" name="move-z-up-btn" value="UP"
+                        class="move-z-up-btn btn shadow-none">
+                    <input type="submit" method="post" name="move-z-down-btn" value="DOWN"
+                        class="move-z-down-btn btn shadow-none">
+                    <input type="submit" method="post" name="move-z-home-btn" value="HOME"
+                        class="move-z-home-btn btn shadow-none">
+
+                </div>
+            </form>
+
+        </div>
+
+        <div class="col-md control-sub-box">
+
+            <figure class="image-control-item">
+                <img src="/images/control_page/ledOnWhite.png" alt="led-on-logo" />
+                <figcaption class="image-control-item-caption">
+                    <h5>LED CONTROL</h5>
+                </figcaption>
+            </figure>
+
+            <form action="/control" method="POST" class="led-control">
+                <div class="led-control-section">
+                    <input type="submit" method="post" name="led-on-btn" value="ON" class="led-on-btn btn shadow-none">
+                    <input type="submit" method="post" name="led-off-btn" value="OFF"
+                        class="led-on-btn btn shadow-none">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row control-box">
+        <div class="col-md control-sub-box">
+
+            <figure class="image-control-item">
+                <img src="/images/control_page/squareWhite.png" alt="lcd-projection-logo" />
+                <figcaption class="image-control-item-caption">
+                    <h5>LCD TEST PROJECTION</h5>
+                </figcaption>
+            </figure>
+
+            <form action="/control" method="POST" class="lcd-test">
+                <div class="lcd-test-section">
+                    <input type="submit" method="post" name="lcd-1-btn" value="LCD 1" class="lcd-1-btn btn shadow-none">
+                    <input type="submit" method="post" name="lcd-2-btn" value="LCD 2" class="lcd-2-btn btn shadow-none">
+                    <input type="submit" method="post" name="lcd-3-btn" value="LCD 3" class="lcd-3-btn btn shadow-none">
+                    <input type="submit" method="post" name="lcd-off-btn" value="LCD OFF"
+                        class="lcd-off-btn btn shadow-none">
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md control-sub-box">
+
+            <figure class="image-control-item">
+                <img src="/images/control_page/homeWhite.png" alt="home-logo" />
+                <figcaption class="image-control-item-caption">
+                    <h5>HOME Z CONTROL</h5>
+                </figcaption>
+            </figure>
+
+
+            <form action="/control" method="POST" class="z-axis">
+                <div class="home-z-axis-section">
+                    <input type="submit" method="post" name="home-z-axis-home-btn" value="HOME"
+                        class="home-z-axis-home-btn btn shadow-none">
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Not T1500. Can be T800 or T2000 any model.-->
+    {else is_T1500}
+    <div class="row control-box">
+        
+        <div class="col-md control-sub-box">
+
+            <figure class="image-control-item">
+                <img src="/images/control_page/upWhite.png" alt="move-z-logo" />
+                <figcaption class="image-control-item-caption">
+                    <h5>MOVE Z-AXIS</h5>
+                </figcaption>
+            </figure>
+
+            <form action="/control" method="POST" class="z-section">
+                <div class="move-z-section">
+
+                    <div class="container">
+                        <input id="move-z-slider" name="move-z-slider" type="range" min="0" max="3" value="0">
+                    </div>
+
+                    <div class="container">
+                        <span>Z-Step: <span name="z-step" id="z-step">1</span> mm</span>
+                        <br>
+                        <br>
+                    </div>
+
+                    <input type="submit" method="post" name="move-z-up-btn" value="UP"
+                        class="move-z-up-btn btn shadow-none">
+                    <input type="submit" method="post" name="move-z-down-btn" value="DOWN"
+                        class="move-z-down-btn btn shadow-none">
+                    <input type="submit" method="post" name="move-z-home-btn" value="HOME"
+                        class="move-z-home-btn btn shadow-none">
+
+                </div>
+            </form>
+
+        </div>
+
+        <div class="col-md control-sub-box">
+
+
+            <figure class="image-control-item">
+                <img src="/images/control_page/tiltWhite.png" alt="tilt-logo" />
+                <figcaption class="image-control-item-caption">
+                    <h5>MOVE TILT MOTOR</h5>
+                </figcaption>
+            </figure>
+
+            <form action="/control" method="POST" class="move-tilt">
+                <div class="move-tilt-section">
+                    <input type="submit" method="post" name="move-tilt-up-btn" value="UP"
+                        class="move-tilt-up-btn btn shadow-none">
+                    <input type="submit" method="post" name="move-tilt-down-btn" value="DOWN"
+                        class="move-tilt-down-btn btn shadow-none">
+                </div>
+            </form>
+        </div>
+    
+    </div>
+
+    <div class="row control-box">
+
+        <div class="col-md control-sub-box">
+
+            <figure class="image-control-item">
+                <img src="/images/control_page/ledOnWhite.png" alt="led-on-logo" />
+                <figcaption class="image-control-item-caption">
+                    <h5>LED CONTROL</h5>
+                </figcaption>
+            </figure>
+
+            <form action="/control" method="POST" class="led-control">
+                <div class="led-control-section">
+                    <input type="submit" method="post" name="led-on-btn" value="ON" class="led-on-btn btn shadow-none">
+                    <input type="submit" method="post" name="led-off-btn" value="OFF"
+                        class="led-on-btn btn shadow-none">
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md control-sub-box">
+
+            <figure class="image-control-item">
+                <img src="/images/control_page/squareWhite.png" alt="lcd-projection-logo" />
+                <figcaption class="image-control-item-caption">
+                    <h5>LCD TEST PROJECTION</h5>
+                </figcaption>
+            </figure>
+
+            <form action="/control" method="POST" class="lcd-test">
+                <div class="lcd-test-section">
+                    <input type="submit" method="post" name="lcd-1-btn" value="LCD 1" class="lcd-1-btn btn shadow-none">
+                    <input type="submit" method="post" name="lcd-2-btn" value="LCD 2" class="lcd-2-btn btn shadow-none">
+                    <input type="submit" method="post" name="lcd-3-btn" value="LCD 3" class="lcd-3-btn btn shadow-none">
+                    <input type="submit" method="post" name="lcd-off-btn" value="LCD OFF"
+                        class="lcd-off-btn btn shadow-none">
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+    <div class="row control-box">
+
+        <div class="col-md control-sub-box">
+
+            <figure class="image-control-item">
+                <img src="/images/control_page/homeWhite.png" alt="home-logo" />
+                <figcaption class="image-control-item-caption">
+                    <h5>HOME Z CONTROL</h5>
+                </figcaption>
+            </figure>
+
+
+            <form action="/control" method="POST" class="z-axis">
+                <div class="home-z-axis-section">
+                    <input type="submit" method="post" name="home-z-axis-home-btn" value="HOME"
+                        class="home-z-axis-home-btn btn shadow-none">
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md control-sub-box">
+
+            <figure class="image-control-item">
+                <img src="/images/control_page/fanOn.png" alt="fan-on-logo" />
+                <figcaption class="image-control-item-caption">
+                    <h5>FAN CONTROL</h5>
+                </figcaption>
+            </figure>
+
+
+            <form action="/control" method="POST" class="fan-control">
+
+                <!-- If T800, display the low med high. -->
+
+                {if is_T800}
+                <div class="fan-control-section">
+                    <input type="submit" method="post" name="fan-off-btn" value="OFF"
+                    class="fan-off-btn btn shadow-none">
+                    <input type="submit" method="post" name="fan-on-low" value="LOW" class="fan-on-btn btn shadow-none">
+                    <input type="submit" method="post" name="fan-on-med" value="MED" class="fan-on-btn btn shadow-none">
+                    <input type="submit" method="post" name="fan-on-high" value="HIGH" class="fan-on-btn btn shadow-none">
+                    
+                </div>
+
+                {else is_T800}
+                <div class="fan-control-section">
+                    <input type="submit" method="post" name="fan-on-btn" value="ON" class="fan-on-btn btn shadow-none">
+                    <input type="submit" method="post" name="fan-off-btn" value="OFF"
+                        class="fan-off-btn btn shadow-none">
+                </div>
+
+                {end is_T800}
+
+             
+            </form>
+        </div>
+
+    </div>
+    {end is_T1500}
+
+</div>

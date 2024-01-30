@@ -1,0 +1,45 @@
+<div class="container text-center">
+
+    <div class="col">
+
+        <h1 style="margin-top:40px;">Select File from USB</h1>
+        <br>
+
+        <form action="/printinfo" method="POST">
+
+            <div class="row-md control-sub-box">
+
+
+                <div class="row thumbnail-div-style">
+                    {loop row}
+                    <div class="col-md">
+                        <div class="row-md">
+                            <button type="button" class="btn btn-primary thumbnail-button-style thumbnail-button"
+                                data-toggle="button" aria-pressed="false" autocomplete="off"
+                                style="background-image:url('{row.image_path}'); background-size:cover;"
+                                onClick="select_thumbnail_button_clicked(this)" name="{row.name}">
+
+                            </button>
+
+                        </div>
+
+                        <div class="row-md">
+                            <p>{row.name}</p>
+                        </div>
+                    </div>
+
+                    {end row}
+
+                </div>
+
+                <input type="submit" id="selected-usb-file-button" name="selected-usb-file-button" value="" hidden>
+
+
+            </div>
+
+
+        </form>
+    </div>
+
+</div>
+ 

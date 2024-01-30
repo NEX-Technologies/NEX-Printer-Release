@@ -1,0 +1,96 @@
+<div class="container text-center">
+  <br>
+  <h1>Printing {print_status}</h1>
+  <div class="row printing-box">
+      <div class="col-sm-3 printing-sub-box">
+          <div id="loader">
+              <canvas id="circularLoader" width="200" height="200"></canvas>
+          </div>
+      </div>
+      <div class="col-md printing-sub-box">
+          <figure class="image-printing-item">
+              <img id="current-image-path" src="" style="max-width: 100%;
+                    height: auto;" alt="" />
+              <figcaption class="image-printing-item-caption"></figcaption>
+          </figure>
+      </div>
+  </div>
+  <div class="row printing-box">
+      <div class="col-md printing-sub-box">
+          <label for="name">Name:</label>
+          <input type="text" id="printing-name" name="name" value="{name}" readonly><br><br>
+          <label for="current-layer">Current Layer: </label>
+          <input type="text" id="printing-current-layer" name="current-layer" value="{current-layer}"
+              readonly><br><br>
+          <label for="remaining-time">Remaining Time: </label>
+          <input type="text" id="printing-remaining-time" name="remaining-time" value="{remaining-time}"
+              readonly><br><br>
+      </div>
+  </div>
+  <div class="row printing-box" style="float: right;">
+      <input type="button" id="print-pause-btn-display" class="btn shadow-none" data-toggle="modal" data-target="#pauseModal" value="{pauseStatus}">
+      <input type="button" class="btn shadow-none" data-toggle="modal" data-target="#abortModal" value="ABORT">
+  </div>
+</div>
+<!-- Pause Modal -->
+<div class="modal fade" id="pauseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Pause/Resume Print</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <p class="modal-paragraph">Are you sure you want pause/resume printing?</p>
+              <p class="modal-paragraph">Current layer will be finished before pausing.</p>
+          </div>
+          <div class="modal-footer">
+              <form action="/printing" method="POST">
+                  <input type="submit" class="btn shadow-none" method="post" id="print-pause-btn"
+                      name="print-pause-btn" value="YES" onclick="pause_resume_clicked()">
+                  <input type="button" class="btn shadow-none" name="cancel-pause-btn" value="NO"
+                      onclick="no_clicked()">
+                 </form>
+              </div>
+           </div>
+        </div>
+     </div>
+
+<!-- Abort Modal -->
+<div class=" modal fade" id="abortModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                      aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Abort Print</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                              </button>
+                          </div>
+                          <div class="modal-body">
+                              <p class="modal-paragraph">Are you sure you want abort printing?</p>
+                              <p class="modal-paragraph">Current layer will be finished before aborting.</p>
+                          </div>
+                          <div class="modal-footer">
+                              <form action="/printing" method="POST">
+                                  <input type="submit" class="btn shadow-none" method="post" id="print-abort-btn "
+                                      name="print-abort-btn" value="YES" onclick="abort_clicked()">
+                                  <input type="button" class="btn shadow-none" name="cancel-abort-btn" value="NO"
+                                      onclick="no_clicked()">
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+          </div>
+
+          <script>
+              function no_clicked() {
+                  $('#abortModal').modal('hide');
+                  $('#pauseModal').modal('hide');
+
+              }
+
+          </script>

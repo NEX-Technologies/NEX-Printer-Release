@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Favicon icon-->
+    <link rel="shortcut icon" href="/images/icon/favicon.png">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+    <title>{printer_web_title}</title>
+
+    <!-- Script to prevent form resubmissions -->
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+
+</head>
+
+
+
+<body>
+    <!-- Small Navigation Bar for Printer Name and Network Mode -->
+    <nav class="navbar navbar-default navbar-xs" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <p class="navbar-brand nav-printer-name">Printer Name: {printer_name}</p>
+            <p class="navbar-brand nav-network-mode">Network Mode: {network_mode}</p>
+            <p class="navbar-brand nav-network-mode">LAN IP: {lan_ip}</p>
+        </div>
+    </nav>
+
+    <!-- Main Navigation Bar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" href="/print">
+                <div class="header-logo">
+                    <img src="/images/icon/nexLogo.png" alt="nex-logo" width="100"/>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/print">Print
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/control">Control</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/settings">Settings</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Block contents -->
+
+    {block_contents}
+
+
+    <!-- Bootstrap core JavaScript -->
+
+    <script src="/js/jquery.slim.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script file for monitor print status of printing.html -->
+    <script src="/js/web_print_status.js"></script>
+
+    <!-- Script file for settings/network control -->
+    <script src="js/settings_page.js"></script>
+
+    <!-- Script file for control page -->
+    <script src="js/control_page.js"></script>
+
+    <!-- Script file knowing which thumbnail button is clicked. -->
+    <script src="js/select_thumbnail_button.js"></script>
+
+    <!-- Sample messagebox -->
+    <script type="text/javascript">
+
+        if ("{message_box_condition}" == "true") {
+            alert("{message_box}");
+        }
+
+    </script>
+
+</body>
+
+</html>

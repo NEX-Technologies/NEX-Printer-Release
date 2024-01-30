@@ -1,0 +1,56 @@
+# G3D T1500 CUSTOM CONFIG.
+
+# HDMI settings.
+hdmi_force_hotplug=1
+hdmi_cvt 1280 2400 30
+hdmi_group=2
+hdmi_mode=87
+
+hdmi_force_hotplug:1=1
+
+hdmi_timings:1=1280 0 35 14 35 2400 0 62 6 28 0 0 0 50 0 170000000 0 
+hdmi_drive=2
+config_hdmi_boost:1=4
+hdmi_ignore_edid=0xa5000080
+
+hdmi_pixel_freq_limit:1=500000000
+max_framebuffer_width:1=1280 
+max_framebuffer_height:1=2400 
+
+# To avoid displaying the lightning icon due to low voltage warning,
+avoid_warnings=2
+
+# Disable default splash, rainbow screen.
+disable_splash=1
+
+# Disable bluetooth
+dtoverlay=pi3-disable-bt
+dtoverlay=disable-bt
+
+# Overclock the SD Card from 50 to 100MHz.
+dtoverlay=sdtweak,overclock_50=100
+ 
+# Set the bootloader delay to 0 seconds. The default is 1s if not specified.
+boot_delay=0
+
+# Increase GPU memory.
+gpu_mem=512
+
+# Enable UART.
+enable_uart=1
+
+# Added for dual screen in RPi 3.
+dtparam=audio=off
+disable_overscan=1
+enable_uart=1
+start_x=1
+max_framebuffers=2
+
+# Custom key-value pair read by the main program.
+printer_model=T1500
+serial_port_name=/dev/ttyAMA0
+usb_root_path=/media/root/
+x_resolution=1280
+y_resolution=2400
+is_tilt_required=false
+is_resizing_required=true

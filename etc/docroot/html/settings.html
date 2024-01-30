@@ -1,0 +1,172 @@
+<div class="container text-center">
+
+    <h1 style="margin-top:40px;">Settings Menu</h1>
+
+    <div class="row settings-box">
+        <div class="col-md settings-sub-box">
+
+
+            <div class="contents align-self-center">
+                
+
+                <p>{printer_web_title}</p>
+                <p>Version {version}</p>
+
+
+
+            </div>
+
+            <hr class="mt-2 mb-3" />
+
+            <div class="printer-name">
+
+                <form action="/settings" method="POST">
+                    <p>Printer Name</p>
+
+                    <label for="name" style="display: inline-block;
+                                width:100px;
+                                text-align: center;">Name: </label>
+                    <input type="text" id="printer-name" name="printer-name" minlength="8" value="{printer_name}"
+                        style="background: white; color: black;"><br><br>
+
+
+                    <input type="submit" id="printer-name-btn" name="printer-name-btn"
+                        class="printer-name-btn btn shadow-none" value="UPDATE">
+
+                </form>
+            </div>
+
+        </div>
+
+        <div class="col-md settings-sub-box">
+            <div class="edit-ssid">
+
+
+                <form action="/settings" method="POST">
+                    <p>Edit/Update Hotspot</p>
+
+                    <label for="name" style="display: inline-block;
+                                width:100px;
+                                text-align: center;">SSID: </label>
+                    <input type="text" id="hotspot-ssid" name="hotspot-ssid" minlength="8" required
+                        value="{hotspot_ssid}" style="background: white; color: black;"><br><br>
+
+                    <label for="name" style="display: inline-block;
+                                width:100px;
+                                text-align: center;">Password: </label>
+                    <input type="text" id="hotspot-pass" name="hotspot-pass" minlength="8" required
+                        value="{hotspot_pass}" style="background: white; color: black;"><br><br>
+
+                    <input hidden type="submit" id="connect-hotspot-btn-hidden" name="update-ssid-btn-hidden"
+                        class="update-ssid-btn-hidden" value="UPDATE HOTSPOT">
+
+                    <input type="button" value="UPDATE HOTSPOT" data-toggle="modal" data-target="#hotspot-change-modal"
+                        class="btn shadow-none">
+
+                </form>
+
+            </div>
+
+            <hr class="mt-2 mb-3" />
+
+            <div class="connect-wifi">
+
+                <form action="/settings" method="POST">
+                    <p>Connect to Wi-Fi</p>
+
+                    <label for="name" style="display: inline-block;
+                                width:100px;
+                                text-align: center;">SSID: </label>
+                    <input type="text" id="wifi-ssid" name="wifi-ssid" minlength="8" required value="{wifi_ssid}"
+                        style="background: white; color: black;"><br><br>
+
+                    <label for="name" style="display: inline-block;
+                                width:100px;
+                                text-align: center;">Password: </label>
+
+                    <input type="text" id="wifi-pass" name="wifi-pass" minlength="8" value="{wifi_pass}" required
+                        style="background: white; color: black;"><br><br>
+
+                    <input hidden type="submit" id="connect-wifi-btn-hidden" name="connect-wifi-btn-hidden"
+                        class="connect-wifi-btn-hidden" value="CONNECT WI-FI">
+
+                    <input type="button" value="CONNECT WI-FI" class="btn shadow-none" data-toggle="modal"
+                        data-target="#wifi-change-modal">
+
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- Hotspot Change Modal -->
+    <div class="modal fade" id="hotspot-change-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Hotspot Credentials</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-paragraph">Are you sure you want update hotspot credentials?</p>
+                    <p class="modal-paragraph">Printer will shutdown upon clicking Yes.</p>
+                </div>
+
+                <div class="modal-footer">
+
+                    <input type="button" id="connect-hotspot-btn" name="update-ssid-btn"
+                        class="update-ssid-btn btn shadow-none" value="YES">
+                    <input type="button" class="btn shadow-none" name="cancel-abort-btn" value="NO"
+                        onclick="no_clicked()">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- W-Fi Change Modal -->
+    <div class="modal fade" id="wifi-change-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Wi-Fi Connection</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-paragraph">Are you sure you want connect to the entered Wi-Fi credentials?
+                    </p>
+                    <p class="modal-paragraph">Printer will shutdown upon clicking Yes.</p>
+                </div>
+
+                <div class="modal-footer">
+
+                    <input type="button" id="connect-wifi-btn" name="connect-wifi-btn"
+                        class="connect-wifi-btn btn shadow-none" value="YES">
+                    <input type="button" class="btn shadow-none" name="cancel-abort-btn" value="NO"
+                        onclick="no_clicked()">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<script>
+    function no_clicked() {
+        $('#wifi-change-modal').modal('hide');
+        $('#hotspot-change-modal').modal('hide');
+
+    }
+</script>

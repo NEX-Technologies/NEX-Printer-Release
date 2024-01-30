@@ -1,0 +1,58 @@
+<div class="row h-100">
+
+  <div class="col my-auto text-center">
+
+    <div class="container">
+
+      <h1>Upload or Load USB Files</h1>
+      <br>
+
+      <div class="row">
+
+        <div class="col-sm title-upload">
+
+          <form class="uploading-file" enctype="multipart/form-data" method="post" action="/printinfo"
+            accept-charset="utf-8" style="display: inline;">
+
+            <label class="choose-file">
+              Upload
+              <input type="file" id="myFile" name="filename" accept=".nex" class="file-upload" style="display:none">
+            </label>
+
+
+            <input id="uploadFile" placeholder="No File" disabled="disabled" hidden />
+
+            <label class="submit-file" hidden>
+              Hidden
+              <div id="file-upload-filename"></div>
+              <input type="submit" class="btn-print" style="display:none">
+            </label>
+
+          </form>
+
+          <label class="choose-file mt-2">
+            <a class="expand-anchor" href="/filepage" class="file-upload">Load USB</a>
+          </label>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+<script>
+  document.getElementById("myFile").onchange = function () {
+    document.getElementById("uploadFile").value = this.value;
+    document.getElementById("file-upload-filename").click()
+  };
+</script>

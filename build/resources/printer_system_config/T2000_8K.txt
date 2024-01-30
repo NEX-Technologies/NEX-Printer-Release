@@ -1,0 +1,55 @@
+# G3D T2000 4K CUSTOM CONFIG.
+
+# HDMI settings.
+hdmi_enable_4kp60=1
+hdmi_force_hotplug=1
+# hdmi_cvt 3840 2160 24
+hdmi_pixel_freq_limit=400000000
+hdmi_timings=2560 0 160 32 160 4320 0 6 6 42 0 0 0 25 0 295800000 0
+
+force_turbo=1
+arm_boost=1
+core_freq=550
+gpu_mem=256
+
+
+# uncomment this if your display has a black border of unused pixels visible
+# and your display can output without overscan
+disable_overscan=1
+
+hdmi_group=2
+hdmi_mode=87
+
+dtoverlay=vc4-fkms-v3d
+max_framebuffers=2
+
+# Enable audio (loads snd_bcm2835)
+dtparam=audio=on
+
+# To avoid displaying the lightning icon due to low voltage warning,
+avoid_warnings=2
+
+# Disable default splash, rainbow screen.
+disable_splash=1
+
+# Disable bluetooth
+dtoverlay=pi3-disable-bt
+dtoverlay=disable-bt
+
+# Overclock the SD Card from 50 to 100MHz.
+dtoverlay=sdtweak,overclock_50=100
+
+# Set the bootloader delay to 0 seconds. The default is 1s if not specified.
+boot_delay=0
+
+# Enable UART.
+enable_uart=1
+
+# Custom key-value pair read by the main program.
+printer_model=T2000_4K
+serial_port_name=/dev/ttyUSB0
+usb_root_path=/media/pi/
+x_resolution=3840
+y_resolution=2160
+is_tilt_required=true
+is_resizing_required=false

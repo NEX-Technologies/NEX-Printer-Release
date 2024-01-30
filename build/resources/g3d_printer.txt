@@ -1,0 +1,5 @@
+version=2024.01.29
+theme=blue
+is_quickstart_finished=false
+network_mode=wifi
+developer_mode=false

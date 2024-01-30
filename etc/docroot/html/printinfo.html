@@ -1,0 +1,118 @@
+<div class="container text-center">
+
+    <h1 style="margin-top:40px;">Sliced File</h1>
+
+    <form name="print-info-form" method="post" action="/printing">
+        <br>
+        <!-- Row 1-->
+        <div class="row printinfo-box">
+
+            <div class="col-md printinfo-sub-box">
+                <!-- image -->
+                <figure class="image-printinfo-item">
+                    <img src="/images/printinfo_page/infoFileName.png" alt="move-z-logo" />
+                    <figcaption class="image-printinfo-item-caption"></figcaption>
+                </figure>
+
+                <label for="name" style="display: inline-block;
+                        width:100px;
+                        text-align: right;">Name:</label>
+                <input type="text" id="name" name="name" value="{filename}" readonly><br><br>
+                <label for="sliced-by" style="display: inline-block;
+                        width:100px;">Sliced By: </label>
+                <input type="text" id="sliced-by" name="sliced-by" value="{sliced_by}" readonly><br><br>
+
+
+            </div>
+
+        </div>
+        <!-- Row 2-->
+
+        <div class="row printinfo-box">
+
+            <div class="col-md printinfo-sub-box">
+                <!-- image -->
+                <figure class="image-printinfo-item">
+                    <img src="/images/printinfo_page/infoLayers.png" alt="move-z-logo" />
+                    <figcaption class="image-printinfo-item-caption"></figcaption>
+                </figure>
+
+                <label for="layers" style="display: inline-block;
+                        width:100px;">Total Number of Layers: </label>
+                <input type="text" id="num-layers" name="num-layers" value={num-layers} readonly><br>
+
+                <label for="height" style="display: inline-block;
+                        width:100px;">Layer Height: </label>
+                <input type="text" id="layer-height" name="layer-height" value="{layer-height}" readonly><br><br><br>
+
+            </div>
+
+            <div class="col-md printinfo-sub-box">
+                <!-- image -->
+                <figure class="image-printinfo-item">
+                    <img src="/images/printinfo_page/infoMaterial.png" alt="move-z-logo" />
+                    <figcaption class="image-printinfo-item-caption"></figcaption>
+                </figure>
+
+                <label for="material" style="display: inline-block;
+                        width:100px;">Material: </label>
+                <input type="text" id="material" name="material" value="{material}" readonly><br><br>
+
+            </div>
+
+        </div>
+
+        <!-- Row 3 -->
+        <div class="row printinfo-box">
+
+            <div class="col-md printinfo-sub-box">
+                <!-- image -->
+                <figure class="image-printinfo-item">
+                    <img src="/images/printinfo_page/infoCureTime.png" alt="move-z-logo" />
+                    <figcaption class="image-printinfo-item-caption"></figcaption>
+                </figure>
+
+                <label for="number-of-layers" style="display: inline-block;
+                        width:100px;">Initial No. Layers: </label>
+                <input type="number" id="initial-number-of-layers" name="initial-number-of-layers" min="0" max="500"
+                    value="{initial-number-of-layers}"><br><br>
+
+                <label for="initial-cure-time" style="display: inline-block;
+                        width:100px;">Initial Cure Time: </label>
+                <input type="number" step="any" id="initial-cure-time" name="initial-cure-time"
+                    value="{initial-cure-time}" min="0" max="500"><br><br>
+
+                <label for="cure-time" style="display: inline-block;
+                        width:100px;">Cure Time: </label>
+                <input type="number" step="any" id="cure-time" name="cure-time" value="{cure-time}" min="0"
+                    max="500"><br><br>
+
+            </div>
+
+            <div class="col-md printinfo-sub-box">
+
+                <!-- image -->
+                <figure class="image-printinfo-item">
+                    <img src="/images/printinfo_page/infoTime.png" alt="move-z-logo" />
+                    <figcaption class="image-printinfo-item-caption"></figcaption>
+                </figure>
+
+                <label for="estimated" style="display: inline-block;
+                        width:100px;">Estimated Print Time: </label>
+                <input type="text" id="estimated" name="estimated" value="{estimated}" readonly><br><br>
+
+            </div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="row printinfo-box" style="float: right;">
+
+            <input type="submit" name="print-cancel-btn" value="CANCEL" class="btn shadow-none">
+            <input type="submit" name="print-start-btn" value="PRINT" class="btn shadow-none">
+
+        </div>
+
+    </form>
+
+
+</div>

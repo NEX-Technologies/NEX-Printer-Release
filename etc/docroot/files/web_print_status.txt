@@ -1,0 +1,5 @@
+name=4k_calhouse_120z.nex
+current-layer=274 / 274
+remaining-time=0 hr 0 min
+progress=100
+current_image_path=/files/mini_projection.png
