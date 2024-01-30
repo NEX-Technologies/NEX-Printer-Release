@@ -8,7 +8,7 @@ def main():
     printer_model = read_config(system_config_path, "printer_model")
     serial_port_name = read_config(system_config_path, "serial_port_name")
     upload_baud_rate =  57600
-    hex_path = f"/home/pi/G3D-Printer/build/resources/hex/{printer_model}.hex"
+    hex_path = f"/home/pi/NEX-Printer/build/resources/hex/{printer_model}.hex"
 
     # Override for testing.
     hex_path = "/home/romnegrillo/Desktop/Workspace/sketch_sep05a.ino.hex"

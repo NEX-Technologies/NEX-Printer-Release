@@ -5,7 +5,7 @@ import subprocess
 dir_path, _ = os.path.split(sys.argv[0])
 system_config_path = "/boot/config.txt"
 user_config_path = "/boot/user_config.txt"
-printer_config_path = os.path.join(dir_path, "..", "g3d_printer.txt")
+printer_config_path = os.path.join(dir_path, "..", "nex_printer.txt")
 config_network_script_path = os.path.join(dir_path, "configure_network.py")
 
 

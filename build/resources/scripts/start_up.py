@@ -8,7 +8,7 @@ specifically:
 - Opens a UI.
 
 - Checks if there is a update zip file named 
-G3D-Printer-Release-master.zip in the root of flash drive.
+NEX-Printer-Release-master.zip in the root of flash drive.
 - Extracts it at user's download's directory.
 - Read the config in the extracted version.
 - Read the current config of the currend program.
@@ -22,10 +22,10 @@ or cancel it.
 the program will simply start the program in user's
 home directory indicated by the path:
 
-/home/user/G3D-Printer/build/G3D-Printer 
+/home/user/NEX-Printer/build/NEX-Printer 
 
 DO NOT EDIT OR MODIFY THIS FILE
-G3D Software Development Team
+NEX Software Development Team
 """
 
 import os
@@ -62,8 +62,8 @@ def read_config(path, key):
     return ""
 
 # Variable constants.
-TARGET_FILE_NAME = "G3D-Printer-Release-master.zip"
-TARGET_FOLDER_NAME = "G3D-Printer-Release-master"
+TARGET_FILE_NAME = "NEX-Printer-Release-master.zip"
+TARGET_FOLDER_NAME = "NEX-Printer-Release-master"
 USERNAME = "pi" #getpass.getuser()
 HOME_DIR = os.path.join("/home", USERNAME) #os.path.expanduser("~")
 DOWNLOADS_DIR = os.path.join(HOME_DIR, "Downloads") 
@@ -77,10 +77,10 @@ else:
 
 UPDATE_FOLDER_DIR = os.path.join(DOWNLOADS_DIR, TARGET_FOLDER_NAME)
 CURRENT_PROGRAM_DIR = os.path.join(HOME_DIR, TARGET_FOLDER_NAME)
-PROGRAM_EXECUTABLE = os.path.join(HOME_DIR, TARGET_FOLDER_NAME, "build", "G3D-Printer")
-CURRENT_PROGRAM_CONFIG_PATH = os.path.join(CURRENT_PROGRAM_DIR, "build", "resources", "g3d_printer.txt")
-UPDATE_PROGRAM_CONFIG_PATH = os.path.join(UPDATE_FOLDER_DIR, "build", "resources", "g3d_printer.txt")
-BURN_IN_FOLDER_NAME = "G3D-Burn-In-Test"
+PROGRAM_EXECUTABLE = os.path.join(HOME_DIR, TARGET_FOLDER_NAME, "build", "NEX-Printer")
+CURRENT_PROGRAM_CONFIG_PATH = os.path.join(CURRENT_PROGRAM_DIR, "build", "resources", "NEX_printer.txt")
+UPDATE_PROGRAM_CONFIG_PATH = os.path.join(UPDATE_FOLDER_DIR, "build", "resources", "NEX_printer.txt")
+BURN_IN_FOLDER_NAME = "NEX-Burn-In-Test"
 CURRENT_BURN_IN_PATH = os.path.join(HOME_DIR, BURN_IN_FOLDER_NAME)
 
 # Variable that depends on the update file and current file.
@@ -220,7 +220,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.update_message_with_delay("Target file found.")
 
                 # Save the directory of the zip file.
-                # /media/username/usbname/G3D-Printer-Release-master.zip
+                # /media/username/usbname/NEX-Printer-Release-master.zip
                 ZIP_FILE_DIR = os.path.join(dir_to_scan_full_path, TARGET_FILE_NAME)
 
                 self.update_message_with_delay("Zip file directory: {}".format(dir_to_scan_full_path))
@@ -290,12 +290,12 @@ class MainWindow(QtWidgets.QMainWindow):
 
         app.processEvents()
     
-        shutil.rmtree("/home/pi/G3D-Printer-Release-master", ignore_errors = True)
+        shutil.rmtree("/home/pi/NEX-Printer-Release-master", ignore_errors = True)
 
-        shutil.copytree("/home/pi/Downloads/G3D-Printer-Release-master",
-                        "/home/pi/G3D-Printer-Release-master")
+        shutil.copytree("/home/pi/Downloads/NEX-Printer-Release-master",
+                        "/home/pi/NEX-Printer-Release-master")
 
-        shutil.rmtree("/home/pi/Downloads/G3D-Printer-Release-master", ignore_errors = True)
+        shutil.rmtree("/home/pi/Downloads/NEX-Printer-Release-master", ignore_errors = True)
 
         self.restore_to_default()
         
@@ -316,8 +316,8 @@ class MainWindow(QtWidgets.QMainWindow):
             if TARGET_FILE_NAME in os.listdir(dir_to_scan_full_path):
 
                 # If USB update is present, delete the downloaded cloud update.
-                shutil.rmtree("/home/pi/Downloads/G3D-Printer-Release-master", ignore_errors = True)
-                shutil.rmtree("/home/pi/Downloads/G3D-Printer-Release", ignore_errors = True)
+                shutil.rmtree("/home/pi/Downloads/NEX-Printer-Release-master", ignore_errors = True)
+                shutil.rmtree("/home/pi/Downloads/NEX-Printer-Release", ignore_errors = True)
                 
                 return True
             
@@ -397,7 +397,7 @@ class MainWindow(QtWidgets.QMainWindow):
             subprocess.run(["python3", script_file])
 
     def restore_to_default(self):
-        subprocess.run(["sudo", "python3", "/home/pi/G3D-Printer-Release-master/build/resources/scripts/reset.py"])
+        subprocess.run(["sudo", "python3", "/home/pi/NEX-Printer-Release-master/build/resources/scripts/reset.py"])
 
 if __name__ == "__main__":
 
@@ -445,11 +445,11 @@ if __name__ == "__main__":
         
     # If cloud downloaded update is present, we replace
     # the old one in home.
-    # Delete: /home/pi/G3D-Printer-Release-master
-    # Copy:   /home/pi/Downloads/G3D-Printer-Release-master
+    # Delete: /home/pi/NEX-Printer-Release-master
+    # Copy:   /home/pi/Downloads/NEX-Printer-Release-master
     # to /home/pi
     
-    elif os.path.exists("/home/pi/Downloads/G3D-Printer-Release-master"):
+    elif os.path.exists("/home/pi/Downloads/NEX-Printer-Release-master"):
         try:
             w.cloud_update_apply()  
         except Exception as e:

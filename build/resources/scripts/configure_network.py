@@ -308,7 +308,7 @@ def reset_network():
     - Reset back to hotspot mode.
     - Change SSID and password of hotspot to default.
     """
-    wifi_to_hospot("G3D-Printer", "g3dRocks54321")
+    wifi_to_hospot("NEX-Printer", "nexRocks54321")
 
 if __name__ == "__main__":
     main()
